@@ -52,7 +52,7 @@
 
                 @php
                     $isDark = request()->query('mode') === 'dark';
-                    $currentUser = request()->query('user', 'Guest');
+                    $currentUser = request()->query('user', 'Hanif');
                 @endphp
 
                 <div class="nav-user-selector">
@@ -72,18 +72,18 @@
                             class="form-select form-select-sm user-select"
                             onchange="this.form.submit()"
                         >
-                            <option value="Guest" {{ $currentUser === 'Guest' ? 'selected' : '' }}>
-                                Guest
-                            </option>
-                            
-                            <option value="Hanif" {{ $currentUser === 'Hanif' ? 'selected' : '' }}>
-                                Hanif
-                            </option>
-
-                            <option value="Aqil" {{ $currentUser === 'Aqil' ? 'selected' : '' }}>
-                                Aqil
-                            </option>
-
+                        <option value="Hanif" {{ $currentUser === 'Hanif' ? 'selected' : '' }}>
+                            Hanif
+                        </option>
+                        
+                        <option value="Aqil" {{ $currentUser === 'Aqil' ? 'selected' : '' }}>
+                            Aqil
+                        </option>
+                        
+                        <option value="Guest" {{ $currentUser === 'Guest' ? 'selected' : '' }}>
+                            Guest
+                        </option>
+                        
                         </select>
                     </form>
                 </div>
