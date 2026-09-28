@@ -57,93 +57,58 @@
                 <div class="row">
 
                     <div class="col-md-6 mb-4">
-
-                        <div class="info-label">
-                            NIM
-                        </div>
-
-                        <div class="info-value">
-                            {{ $mahasiswa['nrp'] }}
-                        </div>
-
+                        <x-info-card
+                            label="NRP"
+                            value="{{ $mahasiswa['nrp'] }}"
+                        />
                     </div>
 
 
                     <div class="col-md-6 mb-4">
-
-                        <div class="info-label">
-                            Nama Lengkap
-                        </div>
-
-                        <div class="info-value">
-                            {{ $mahasiswa['nama'] }}
-                        </div>
-
+                        <x-info-card
+                            label="Nama Lengkap"
+                            value="{{ $mahasiswa['nama'] }}"
+                        />
                     </div>
 
 
                     <div class="col-md-6 mb-4">
-
-                        <div class="info-label">
-                            Fakultas
-                        </div>
-
-                        <div class="info-value">
-                            {{ $mahasiswa['fakultas'] }}
-                        </div>
-
+                        <x-info-card
+                            label="Fakultas"
+                            value="{{ $mahasiswa['fakultas'] }}"
+                        />
                     </div>
 
 
                     <div class="col-md-6 mb-4">
-
-                        <div class="info-label">
-                            Program Studi
-                        </div>
-
-                        <div class="info-value">
-                            {{ $mahasiswa['jurusan'] }}
-                        </div>
-
+                        <x-info-card
+                            label="Program Studi"
+                            value="{{ $mahasiswa['jurusan'] }}"
+                        />
                     </div>
 
 
                     <div class="col-md-6 mb-4">
-
-                        <div class="info-label">
-                            Angkatan
-                        </div>
-
-                        <div class="info-value">
-                            {{ $mahasiswa['angkatan'] }}
-                        </div>
-
+                        <x-info-card
+                            label="Angkatan"
+                            value="{{ $mahasiswa['angkatan'] }}"
+                        />
                     </div>
 
 
                     <div class="col-md-6 mb-4">
-
-                        <div class="info-label">
-                            Email
-                        </div>
-
-                        <div class="info-value">
-                            {{ $mahasiswa['email'] }}
-                        </div>
-
+                        <x-info-card
+                            label="Email"
+                            value="{{ $mahasiswa['email'] }}"
+                        />
                     </div>
 
 
                     <div class="col-md-6 mb-4">
-
-                        <div class="info-label">
-                            Status
-                        </div>
-
-                        <div class="info-value">
-                            {{ $mahasiswa['status'] }}
-                        </div>
-
+                        <x-info-card
+                            label="Status"
+                            value="{{ $mahasiswa['status'] }}"
+                        />
                     </div>
 
                 </div>

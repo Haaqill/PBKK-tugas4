@@ -14,7 +14,7 @@
 
                 <div class="text-center mb-5">
 
-                    <p class="text-uppercase text-secondary fw-semibold mb-2">
+                    <p class="text-uppercase text-secondary fw-semibold">
                         Academic Calculator
                     </p>
 
@@ -23,17 +23,24 @@
                     </h1>
 
                     <p class="text-secondary">
-                        Masukkan IP dari dua semester untuk menghitung
-                        IPK rata-rata.
+                        Masukkan IP dari dua semester.
                     </p>
 
                 </div>
 
-                <form id="ipkForm">
+
+                <form
+                    method="GET"
+                    action=""
+                    id="ipkForm"
+                >
 
                     <div class="mb-4">
 
-                        <label for="ip1" class="form-label fw-semibold">
+                        <label
+                            for="ip1"
+                            class="form-label fw-semibold"
+                        >
                             IP Semester 1
                         </label>
 
@@ -41,7 +48,6 @@
                             type="number"
                             id="ip1"
                             class="form-control form-control-lg"
-                            placeholder="Contoh: 3.50"
                             min="0"
                             max="4"
                             step="0.01"
@@ -54,7 +60,10 @@
 
                     <div class="mb-4">
 
-                        <label for="ip2" class="form-label fw-semibold">
+                        <label
+                            for="ip2"
+                            class="form-label fw-semibold"
+                        >
                             IP Semester 2
                         </label>
 
@@ -62,7 +71,6 @@
                             type="number"
                             id="ip2"
                             class="form-control form-control-lg"
-                            placeholder="Contoh: 3.75"
                             min="0"
                             max="4"
                             step="0.01"
@@ -73,7 +81,10 @@
                     </div>
 
 
-                    <button type="submit" class="btn btn-dark w-100 py-3">
+                    <button
+                        type="submit"
+                        class="btn btn-dark w-100 py-3"
+                    >
                         Hitung IPK
                     </button>
 
@@ -84,16 +95,15 @@
 
                     <hr class="my-5">
 
-                    <div class="text-center">
+                    <x-status-banner
+                        message="Perhitungan IPK berhasil dilakukan."
+                    />
 
-                        <p class="text-uppercase text-secondary fw-semibold mb-2">
-                            Hasil Perhitungan
+                    <div class="text-center mt-4">
+
+                        <p class="text-secondary">
+                            IPK Rata-rata
                         </p>
-
-                        <h2 class="fw-bold mb-4">
-                            IPK Kamu
-                        </h2>
-
 
                         <div
                             class="fw-bold"
@@ -101,14 +111,6 @@
                         >
                             {{ number_format($ipk, 2) }}
                         </div>
-
-
-                        <p class="text-secondary mt-3">
-                            Dari IP semester
-                            <strong>{{ number_format($ip1, 2) }}</strong>
-                            dan
-                            <strong>{{ number_format($ip2, 2) }}</strong>
-                        </p>
 
                     </div>
 
@@ -125,37 +127,32 @@
 
 <script>
 
-    document
-        .getElementById('ipkForm')
-        .addEventListener('submit', function(event) {
+document
+    .getElementById('ipkForm')
+    .addEventListener('submit', function (event) {
 
-            event.preventDefault();
+        event.preventDefault();
 
-            const ip1 = document.getElementById('ip1').value;
-            const ip2 = document.getElementById('ip2').value;
+        const ip1 = document.getElementById('ip1').value;
+        const ip2 = document.getElementById('ip2').value;
 
-            if (ip1 === '' || ip2 === '') {
-                alert('Silakan masukkan IP semester 1 dan semester 2.');
-                return;
-            }
+        const nilaiIp1 = parseFloat(ip1);
+        const nilaiIp2 = parseFloat(ip2);
 
-            const nilaiIp1 = parseFloat(ip1);
-            const nilaiIp2 = parseFloat(ip2);
+        if (
+            nilaiIp1 < 0 ||
+            nilaiIp1 > 4 ||
+            nilaiIp2 < 0 ||
+            nilaiIp2 > 4
+        ) {
+            alert('Nilai IP harus berada antara 0 sampai 4.');
+            return;
+        }
 
-            if (
-                nilaiIp1 < 0 ||
-                nilaiIp1 > 4 ||
-                nilaiIp2 < 0 ||
-                nilaiIp2 > 4
-            ) {
-                alert('Nilai IP harus berada antara 0 sampai 4.');
-                return;
-            }
+        window.location.href =
+            '/hitung-ipk/' + ip1 + '/' + ip2;
 
-            window.location.href =
-                '/hitung-ipk/' + ip1 + '/' + ip2;
-
-        });
+    });
 
 </script>
 

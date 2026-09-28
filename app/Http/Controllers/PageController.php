@@ -18,9 +18,11 @@ class PageController extends Controller
         ],
     ];
 
-    public function home(){
+    public function home(Request $request){
+        $user = $request->query('user', 'Hanif');
+
         $mahasiswa = $this->mahasiswa['5025241111'];
-        return view('home', compact('mahasiswa'));
+        return view('home', compact('mahasiswa', 'user'));
     }
         
     public function profil($nrp){
@@ -30,7 +32,9 @@ class PageController extends Controller
 
     public function agent($tema = null){
         if ($tema=='ByeByeCleaner'){
-            return view('project', ['tema' => $tema]);
+            return view('project', [
+                    'tema' => $tema,
+                ]);
         }
 
         return 'General Assistant Agent';

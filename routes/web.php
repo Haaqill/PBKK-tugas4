@@ -5,13 +5,11 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [PageController::class, 'home']) ->name('home');
 
-Route::prefix('dashboard')->group(function(){    
-    Route::get('/mahasiswa/{nrp}', [PageController::class, 'profil']) 
+Route::get('/profil-mahasiswa/{nrp}', [PageController::class, 'profil']) 
     ->where('nrp', '[0-9]{10}')
     ->name('mahasiswa.profil');
-});
-
-Route::get('/agent/{tema?}', [PageController::class, 'agent']) ->name('agent');
+    
+Route::get('/ide-agent/{tema?}', [PageController::class, 'agent']) ->name('agent');
 
 Route::get('/hitung-ipk/{ip1}/{ip2}', [PageController::class, 'hitung']) 
     ->where([

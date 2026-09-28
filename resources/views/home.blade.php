@@ -8,20 +8,20 @@
 
     <div class="hero-content">
 
-        <div class="hero-label mb-4">
-            Institut Teknologi Sepuluh Nopember
-        </div>
+        <x-status-banner
+            message="Selamat datang, {{ $user }}!"
+        />
 
+        <p class="text-uppercase fw-semibold">
+            Academic Profile
+        </p>
 
-        <h1 class="hero-title mb-4">
-            Departemen Teknik Informatika
+        <h1 class="hero-title">
+            Profil Akademis
         </h1>
 
-
-        <p class="hero-subtitle mb-5">
-            Departemen Teknik Informatika di ITS berdedikasi pada keunggulan dalam pendidikan, penelitian, dan inovasi di bidang 
-            ilmu komputer dan rekayasa perangkat lunak. Kami mempersiapkan mahasiswa untuk menjadi pemimpin teknologi melalui 
-            kurikulum mutakhir dan fasilitas kelas dunia.
+        <p class="hero-subtitle">
+            Selamat datang di aplikasi profil akademis mahasiswa ITS.
         </p>
 
     </div>
