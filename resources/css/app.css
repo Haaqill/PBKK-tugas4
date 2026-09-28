@@ -40,6 +40,17 @@ body {
     background-color: #f1f5f9;
 }
 
+.page-light .user-select {
+    background-color: #ffffff;
+    color: #334155;
+    border-color: #cbd5e1;
+}
+
+.page-light .user-select:focus {
+    border-color: #0d6efd;
+    box-shadow: none;
+}
+
 .page-dark {
     background-color: #0f172a !important;
     color: #e2e8f0;
@@ -68,6 +79,24 @@ body {
     background-color: #374151;
 }
 
+.page-dark .user-select {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    border-color: #475569;
+}
+
+.page-dark .user-select:focus {
+    background-color: #1e293b;
+    color: #ffffff;
+    border-color: #64748b;
+    box-shadow: none;
+}
+
+.page-dark .user-select option {
+    background-color: #1e293b;
+    color: #e2e8f0;
+}
+
 .nav-link {
     padding: 8px 14px !important;
     transition:
@@ -92,6 +121,16 @@ body {
     margin: 0 6px;
 }
 
+.nav-user-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-user-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
 
 .page-dark footer {
     background-color: #111827;

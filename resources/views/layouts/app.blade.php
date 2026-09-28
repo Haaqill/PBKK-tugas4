@@ -21,6 +21,7 @@
                 Profil Akademis
             </a>
 
+            
             <div class="d-flex gap-2">
 
                 <a href="{{ route('home') }}" class="btn {{ ($darkMode ?? false) ? 'btn-outline-light' : 'btn-outline-dark' }}">
@@ -48,6 +49,44 @@
                 >
                     {{ $isDark ? '☀ Light Mode' : '🌙 Dark Mode' }}
                 </a>
+
+                @php
+                    $isDark = request()->query('mode') === 'dark';
+                    $currentUser = request()->query('user', 'Guest');
+                @endphp
+
+                <div class="nav-user-selector">
+                    <span class="nav-user-label">
+                        User:
+                    </span>
+
+                    <form method="GET" action="{{ route('home') }}">
+                        <input
+                            type="hidden"
+                            name="mode"
+                            value="{{ $isDark ? 'dark' : 'light' }}"
+                        >
+
+                        <select
+                            name="user"
+                            class="form-select form-select-sm user-select"
+                            onchange="this.form.submit()"
+                        >
+                            <option value="Guest" {{ $currentUser === 'Guest' ? 'selected' : '' }}>
+                                Guest
+                            </option>
+                            
+                            <option value="Hanif" {{ $currentUser === 'Hanif' ? 'selected' : '' }}>
+                                Hanif
+                            </option>
+
+                            <option value="Aqil" {{ $currentUser === 'Aqil' ? 'selected' : '' }}>
+                                Aqil
+                            </option>
+
+                        </select>
+                    </form>
+                </div>
 
             </div>
 
